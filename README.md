@@ -8,6 +8,10 @@ One of the main challenges I faced was generating the **SAS token** and dealing 
 
 This project serves as a lightweight SDK for IoT devices based on Quectel modules, allowing integration with Azure’s IoT ecosystem even in constrained environments.
 
+Features: Device connection, client to service and service to client communication, direct methods and device twins.
+
+Authentication: SAS Token and CA signed x.509 certificate
+
 ##  How to Install and Run the Project
 
 To get started with this project, you should first clone the Repository:
