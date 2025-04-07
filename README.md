@@ -42,7 +42,7 @@ After completing the steps, you will be ready to run the example code and test M
 To use this program, you must first have a Microsoft Azure account and register a device on your IoT Hub.
 
 You can follow the steps in the official Azure guide here:  
-**#TODO Add link to Azure IoT Hub device creation guide**
+https://learn.microsoft.com/en-us/azure/iot-hub/create-connect-device?tabs=portal
 
 Azure supports several authentication methods for connecting devices.  
 In this project, we demonstrate two commonly used methods:
