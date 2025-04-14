@@ -5,8 +5,7 @@ SUB_TOPIC = "$iothub/twin/res/#"
 RET_PUB_TOPIC = "$iothub/twin/GET/?$rid={}" #Topic for publishing to trigger twin json data from Hub
 UPT_PUB_TOPIC = "$iothub/twin/PATCH/properties/reported/?$rid={}" #Topic for publishing changes in Json
 DESIRED_PROP_TOPIC = "$iothub/twin/PATCH/properties/desired/#"  # Topic for desired property updates
-# Payload Example
-#payload = {"podaci": 50}  # Test variable
+
 
 class Twins:
     def __init__(self, mqtt_client):

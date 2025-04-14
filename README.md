@@ -37,6 +37,8 @@ Setting up the development environment and connecting your module via USB
 
 After completing the steps, you will be ready to run the example code and test MQTT connectivity to Azure IoT Hub.
 
+Another tool you need for testing and monitoring is **Azure IoT Explorer**. You can find installation steps and guide here: https://learn.microsoft.com/en-us/azure/iot/howto-use-iot-explorer
+
 ## How to Use the Project
 
 To use this program, you must first have a Microsoft Azure account and register a device on your IoT Hub.
