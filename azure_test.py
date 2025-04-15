@@ -5,7 +5,7 @@ from usr.config import CERT,PRIVATE_KEY,SHARED_ACCESS_KEY, PASSWORD
 
 
 # device name
-client_id = 'device_qp'
+client_id = 'device123'
 # server address
 server = 'qp-hub.azure-devices.net'
 # port MQTT
@@ -33,6 +33,5 @@ print("azure connect start")
 azure_obj.connect()
 print("azure connect end")
 
+
 azure_obj.start()
-
-

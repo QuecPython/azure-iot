@@ -6,11 +6,8 @@ from hmac import HMAC
 def generate_sas_token(uri, key, policy_name, expiry=3600):
         #localtime returnes tuple with local RTC time
         ttl = utime.localtime()
-        print(ttl)
         #mktime returnes 6 hours behind, so we have to add 6 hours + expiry
-        t = utime.mktime(ttl) + (3600 * 6) + expiry 
-        print(t)
-        
+        t = utime.mktime(ttl) + (3600 * 6) + expiry  
         sign_key = "%s\n%d" % ((quote_plus(uri)), int(t))
         #print(sign_key)
         signature = b64encode(HMAC(b64decode(key), sign_key.encode('utf-8'), sha256).digest())
@@ -27,7 +24,6 @@ def generate_sas_token(uri, key, policy_name, expiry=3600):
         
     
 def quote(string, safe='/', encoding=None, errors=None):
-    """Enkoduju specijalne karaktere u stringu koristeći URL encoding."""
     if isinstance(string, str):
         if not string:
             return string
@@ -56,7 +52,6 @@ def quote(string, safe='/', encoding=None, errors=None):
 
 
 def quote_plus(string, safe='', encoding=None, errors=None):
-    """Enkoduju string i zameni razmake sa '+'."""
     if ((isinstance(string, str) and ' ' not in string) or
         (isinstance(string, bytes) and b' ' not in string)):
         return quote(string, safe, encoding, errors)
@@ -70,7 +65,6 @@ def quote_plus(string, safe='', encoding=None, errors=None):
     return string.replace(' ', '+')
 
 def urlencode( query, doseq=False, safe='', encoding=None, errors=None):
-    """Konvertuje dict ili listu tuple-ova u URL query string."""
     if hasattr(query, "items"):
         query = query.items()
     else:

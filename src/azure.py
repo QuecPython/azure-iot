@@ -62,17 +62,11 @@ class Azure(object):
         self.twins_manager.subscribe_to_desired_updates(qos=qos)
 
     def init_direct_method_handler(self, method_handler): 
-        try:
-            self.set_callback("$iothub/methods/POST/#", method_handler)
-            self.subscribe("$iothub/methods/POST/#")
-        except:
-            self.logging.error("Initialization of direct method handled error")
+        self.direct_method.init_direct_method_handler(method_handler)
 
     def send_method_response(self, status, message, request_id):
-        response_topic = "$iothub/methods/res/{}/?$rid={}".format(status, request_id)
-        self.mqtt_client.publish(response_topic, ujson.dumps({"result": message}))
+        self.direct_method.send_method_response(status,message,request_id)
 
-    
     def generate_sas_token(self, uri, key, policy_name, expiry=3600):
         token = sas.generate_sas_token(uri,key,policy_name,expiry)
         return token

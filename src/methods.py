@@ -1,18 +1,18 @@
 import ujson
+import log
 
 class Method(object):
     def __init__(self, mqtt_client):
         self.mqtt_client = mqtt_client
-        self.mqtt_client.set_callback("$iothub/methods/POST/#",self.handle_method)
+        self.logging = log.getLogger("Method")
+        
+    def init_direct_method_handler(self, method_handler): 
+        try:
+            self.mqtt_client.set_callback("$iothub/methods/POST/#", method_handler)
+            self.mqtt_client.subscribe("$iothub/methods/POST/#")
+        except:
+            self.logging.error("Initialization of direct method handled error")
 
-    def handle_method(self, method_name, msg):
-        if method_name == "turn_on_light":
-            # Uključi svetlo
-            print("Svetlo uključeno!")
-            self.send_response(200, "Svetlo je uključeno")
-        else:
-            self.send_response(404, "Metoda nije pronađena")
-
-    def send_method_response(self, status, message):
+    def send_method_response(self, status, message, request_id):
         response_topic = "$iothub/methods/res/{}/?$rid={}".format(status, request_id)
-        self.client_id.publish(response_topic, ujson.dumps({"result": message}))
+        self.mqtt_client.publish(response_topic, ujson.dumps({"result": message}))
