@@ -59,10 +59,10 @@ Azure IoT Hub's MQTT implementation ensures secure, controlled communication, ma
 
 
 In IoT Explorer tool you can see device to cloud messages in Telemetry window. When you click start, all D2C messages published on previously mentioned reserved topic will be displayed here:
-![](../media/Picture9.png)
+![](../doc/media/Picture9.png)
 
 Also if you want to send message from cloud to device, you can do it in Cloud-to-device message window:
-![](../media/Picture10.png)
+![](../doc/media/Picture10.png)
 
 
 # Solution
@@ -73,11 +73,11 @@ Also if you want to send message from cloud to device, you can do it in Cloud-to
 
 1. Navigate to the **IoT Hub** service in the Azure portal and select **Create**.
 
-![](../media/Picture1.png)
+![](../doc/media/Picture1.png)
 
 2. Fill in the required fields:
 
-![](../media/Picture2.png)
+![](../doc/media/Picture2.png)
 
     - **Resource Group**: Select an existing resource group or create a new one. A resource group is a container that holds related resources for an Azure solution.
     - **Region**: Choose the region closest to your devices for optimal performance.
@@ -89,11 +89,11 @@ Also if you want to send message from cloud to device, you can do it in Cloud-to
 1. After the IoT Hub is created, go to the **IoT devices** section under your IoT Hub.
 2. Select **+ Add Device** to create a new device.
 
-![](../media/Picture3.png)
+![](../doc/media/Picture3.png)
 
 3. Fill in the following details:
 
-![](../media/Picture3.png)
+![](../doc/media/Picture3.png)
 
     - **Device ID**: Enter a unique name for your device.
     - **Authentication Type**: Choose between:
@@ -248,7 +248,7 @@ Device Twins in Azure IoT Hub provide a structured mechanism for synchronizing s
 
 ### MQTT Topics for Device Twin Communication
 
-![](../media/Picture5.jpg)
+![](../doc/media/Picture5.jpg)
 
 #### Retrieving the Device Twin
 
@@ -307,7 +307,7 @@ def update_twin(self, payload, request_id=None, qos=0)
 This method ensures the device's state is synchronized with the cloud, enabling effective monitoring and management.
 
 If you want to check device twin content, you can do it in Explorer:
-![](../media/Picture8.png)
+![](../doc/media/Picture8.png)
 
 
 ## Direct Methods
@@ -394,8 +394,8 @@ azure_obj.start()
 ```
 
 In Azure IoT Explorer you can send a direct method message:
-![](../media/Picture6.png)
+![](../doc/media/Picture6.png)
 
 
 Response from device:
-![](../media/Picture7.png)
+![](../doc/media/Picture7.png)
